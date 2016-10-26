@@ -13,6 +13,13 @@
         android:layout_height="30dp"
         android:background="#484E61">
         
+        <Button 
+            android:id="@+id/id_switch_city"
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+        
         <TextView
             android:id="@+id/id_cityName"
             android:layout_width="wrap_content"
@@ -20,6 +27,14 @@
             android:layout_centerInParent="true"
            	android:textColor="#FFF"
             android:textSize="28sp"/>
+        
+        <Button 
+            android:id="@+id/id_refresh_weather"
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
     </RelativeLayout>
     
     <RelativeLayout
