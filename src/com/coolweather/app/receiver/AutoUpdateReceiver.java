@@ -8,9 +8,6 @@ import android.content.Intent;
 
 public class AutoUpdateReceiver extends BroadcastReceiver {
 
-	public AutoUpdateReceiver() {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public void onReceive(Context context, Intent intent) {

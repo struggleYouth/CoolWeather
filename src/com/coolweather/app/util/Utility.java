@@ -19,9 +19,6 @@ import android.text.TextUtils;
 
 public class Utility {
 
-	public Utility() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	/**
 	 * 解析和处理服务器返回的省级数据

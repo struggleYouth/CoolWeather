@@ -58,18 +58,18 @@ public class ChooseAreaActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity", false);
-		
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		
-		//已经选择了城市且不失从WeatherActivity跳转出来，才会直接跳转到WeatherA
-		
-		if(prefs.getBoolean("city_selected", false) && !isFromWeatherActivity){
-			Intent inter = new Intent(ChooseAreaActivity.this,WeatherActivity.class);
-			startActivity(inter);
-			finish();
-			return;
-		}
+//		isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity", false);
+//		
+//		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+//		
+//		//已经选择了城市且不失从WeatherActivity跳转出来，才会直接跳转到WeatherA
+//		
+//		if(prefs.getBoolean("city_selected", false) && !isFromWeatherActivity){
+//			Intent inter = new Intent(this,WeatherActivity.class);
+//			startActivity(inter);
+//			finish();
+//			return;
+//		}
 		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_choose_area);
@@ -88,6 +88,7 @@ public class ChooseAreaActivity extends Activity {
 				// TODO Auto-generated method stub
 				if(currentLevel == LEVEL_PROVINCE){
 					selectedProvince = listProvince.get(position);
+					queryCities();
 				}else if(currentLevel == LEVEL_CITY){
 					selectedCity = listCity.get(position);
 					queryCounties();
@@ -216,7 +217,7 @@ public class ChooseAreaActivity extends Activity {
 					public void run() {
 						// TODO Auto-generated method stub
 						closeProgressDialog();
-						Toast.makeText(ChooseAreaActivity.this, "加载失败", Toast.LENGTH_SHORT).show();
+						Toast.makeText(ChooseAreaActivity.this, "加载失败...001", Toast.LENGTH_SHORT).show();
 					}
 				});
 			}
@@ -231,7 +232,7 @@ public class ChooseAreaActivity extends Activity {
 		// TODO Auto-generated method stub
 		if(progressDialog == null){
 			progressDialog = new ProgressDialog(this);
-			progressDialog.setMessage("正在加载...");
+			progressDialog.setMessage("正在加载...001");
 			progressDialog.setCanceledOnTouchOutside(false);
 		}
 		progressDialog.show();
@@ -259,7 +260,7 @@ public class ChooseAreaActivity extends Activity {
 			queryProvinces();
 		}else{
 			if(isFromWeatherActivity){
-				Intent intent = new Intent(ChooseAreaActivity.this,WeatherActivity.class);
+				Intent intent = new Intent(this,WeatherActivity.class);
 				startActivity(intent);
 			}
 			finish();

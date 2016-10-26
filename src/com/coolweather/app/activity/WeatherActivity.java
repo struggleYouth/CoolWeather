@@ -102,7 +102,7 @@ public class WeatherActivity extends Activity {
 	 */
 	private void queryWeatherInfo(String weatherCode) {
 		// TODO Auto-generated method stub
-		String address = "http://www.weather.com.cn/data/list3/city"+weatherCode+".xml";
+		String address = "http://www.weather.com.cn/data/cityinfo/"+weatherCode+".xml";
 		queryFromServer(address,"countyCode");
 	}
 	
@@ -122,7 +122,7 @@ public class WeatherActivity extends Activity {
 					if(!TextUtils.isEmpty(response)){
 						//从服务器返回的数据中解析天气代码
 						String[] array = response.split("\\|");
-						if(array != null && array.length ==2){
+						if(array != null && array.length == 2){
 							String weatherCode = array[1];
 							queryWeatherInfo(weatherCode);
 						}
@@ -175,7 +175,7 @@ public class WeatherActivity extends Activity {
 		cityNameText.setVisibility(View.VISIBLE);
 		
 		//激活AutoUpdateService服务
-		Intent intent = new Intent(WeatherActivity.this,AutoUpdateService.class);
+		Intent intent = new Intent(this,AutoUpdateService.class);
 		startActivity(intent);
 	}
 
