@@ -1,6 +1,7 @@
 package com.coolweather.app.activity;
 
 import com.coolweather.app.R;
+import com.coolweather.app.service.AutoUpdateService;
 import com.coolweather.app.util.HttpCallbackListener;
 import com.coolweather.app.util.HttpUtil;
 import com.coolweather.app.util.Utility;
@@ -172,6 +173,10 @@ public class WeatherActivity extends Activity {
 		
 		weatherInfoLayout.setVisibility(View.VISIBLE);
 		cityNameText.setVisibility(View.VISIBLE);
+		
+		//¼¤»îAutoUpdateService·þÎñ
+		Intent intent = new Intent(WeatherActivity.this,AutoUpdateService.class);
+		startActivity(intent);
 	}
 
 	
